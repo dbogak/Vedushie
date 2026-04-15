@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Академия Ведущих — Стань профессиональным ведущим мероприятий</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-deep: #1a1040;
+  --purple-mid: #3d2e8f;
+  --purple-main: #5b45c7;
+  --purple-light: #8b77e8;
+  --purple-pale: #eeebfc;
+  --coral: #e8704a;
+  --coral-light: #f5a07a;
+  --gold: #c9a84c;
+  --cream: #faf8f3;
+  --text-dark: #0f0a24;
+  --text-mid: #4a4270;
+  --text-muted: #8c87a8;
+  --border: rgba(91,69,199,0.15);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Onest', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--purple-deep);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 40px 80px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(91,69,199,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(232,112,74,0.2) 0%, transparent 50%);
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.hero-deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.hero-deco-circle:nth-child(1) { width: 600px; height: 600px; right: -200px; top: -200px; }
+.hero-deco-circle:nth-child(2) { width: 400px; height: 400px; right: -80px; top: -80px; }
+.hero-deco-circle:nth-child(3) { width: 200px; height: 200px; right: 40px; top: 40px; border-color: rgba(255,255,255,0.12); }
+
+.hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.5px;
+  margin-bottom: 32px;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #5ddb8f; }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.hero h1 .accent {
+  background: linear-gradient(90deg, var(--coral-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px);
+  color: rgba(255,255,255,0.7);
+  max-width: 560px;
+  margin-bottom: 48px;
+  font-weight: 300;
+  line-height: 1.7;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 18px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Onest', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 8px 32px rgba(232,112,74,0.35);
+}
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(232,112,74,0.5); background: #d4613c; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 100px;
+  padding: 17px 32px;
+  font-size: 16px;
+  font-family: 'Onest', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+.hero-stat-lbl {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+}
+.hero-stat-divider {
+  width: 1px;
+  background: rgba(255,255,255,0.12);
+  align-self: stretch;
+}
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--purple-deep);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 40px;
+}
+.trust-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
+.trust-icon { font-size: 16px; }
+
+/* ── SECTION WRAPPER ── */
+.section { padding: 96px 40px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-alt { background: #fff; }
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--purple-main);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 17px;
+  color: var(--text-mid);
+  max-width: 560px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── PAIN SECTION ── */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.pain-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pain-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(91,69,199,0.1); }
+.pain-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple-main), var(--purple-light));
+}
+.pain-emoji { font-size: 32px; margin-bottom: 16px; }
+.pain-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text-dark); }
+.pain-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+/* ── RESULTS ── */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+  margin-top: 48px;
+}
+.result-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--purple-pale);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  border: 1px solid rgba(91,69,199,0.12);
+}
+.result-check {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--purple-main);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.result-text { font-size: 15px; color: var(--text-dark); line-height: 1.55; }
+
+/* ── PROGRAM ── */
+.modules { margin-top: 48px; }
+.module-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  transition: background 0.15s;
+}
+.module-item:last-child { border-bottom: none; }
+.mod-num-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--purple-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple-main);
+}
+.mod-title { font-size: 17px; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+.mod-desc { font-size: 14px; color: var(--text-mid); line-height: 1.65; margin-bottom: 10px; }
+.mod-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: var(--purple-pale);
+  color: var(--purple-main);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+
+/* ── HOW IT WORKS ── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+  counter-reset: step;
+}
+.step-card {
+  text-align: center;
+  padding: 32px 20px;
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.step-num {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--purple-deep);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+.step-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.step-desc { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+/* ── PRICING ── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+  align-items: start;
+}
+.price-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.price-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(91,69,199,0.12); }
+.price-card.featured {
+  background: var(--purple-deep);
+  border-color: var(--purple-mid);
+  color: #fff;
+  transform: scale(1.03);
+}
+.price-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--coral);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.price-icon { font-size: 36px; margin-bottom: 14px; }
+.price-name { font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.price-card.featured .price-name { color: rgba(255,255,255,0.5); }
+.price-amount { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.price-card.featured .price-amount { color: #fff; }
+.price-sub { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
+.price-card.featured .price-sub { color: rgba(255,255,255,0.45); }
+.price-features { list-style: none; margin-bottom: 28px; }
+.price-features li { font-size: 14px; color: var(--text-mid); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-start; }
+.price-card.featured .price-features li { color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.08); }
+.price-features li::before { content: '✓'; color: var(--purple-main); font-weight: 700; flex-shrink: 0; }
+.price-card.featured .price-features li::before { color: var(--coral-light); }
+.price-features li:last-child { border-bottom: none; }
+.btn-price {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Onest', sans-serif;
+  text-align: center;
+  cursor: pointer;
+  border: 1.5px solid var(--purple-main);
+  color: var(--purple-main);
+  background: transparent;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-price:hover { background: var(--purple-main); color: #fff; }
+.btn-price-main {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Onest', sans-serif;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: var(--coral);
+  color: #fff;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-price-main:hover { background: #d4613c; transform: translateY(-1px); }
+
+/* ── EARN STATS ── */
+.earn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.earn-card {
+  background: var(--purple-deep);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+}
+.earn-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--coral-light);
+  display: block;
+  margin-bottom: 8px;
+}
+.earn-lbl { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ── MENTOR ── */
+.mentor-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 44px;
+  margin-top: 48px;
+  align-items: center;
+}
+.mentor-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple-main), var(--purple-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+.mentor-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+.mentor-title { font-size: 14px; color: var(--purple-main); font-weight: 500; margin-bottom: 16px; }
+.mentor-bio { font-size: 15px; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+.mentor-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.mentor-tag {
+  background: var(--purple-pale);
+  color: var(--purple-mid);
+  border-radius: 100px;
+  padding: 5px 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ── TESTIMONIALS ── */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+.testi-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  position: relative;
+}
+.testi-quote {
+  font-size: 48px;
+  color: var(--purple-pale);
+  font-family: 'Playfair Display', serif;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.testi-text {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-ava {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple-light), var(--purple-main));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.testi-name { font-size: 14px; font-weight: 600; }
+.testi-city { font-size: 12px; color: var(--text-muted); }
+.testi-result { font-size: 13px; color: var(--purple-main); font-weight: 600; margin-top: 2px; }
+
+/* ── FAQ ── */
+.faq { margin-top: 48px; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-dark);
+  user-select: none;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--purple-main); }
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  color: var(--purple-main);
+  transition: transform 0.3s, background 0.2s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--purple-main); color: #fff; border-color: var(--purple-main); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s;
+}
+.faq-a-inner {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.75;
+  padding-bottom: 22px;
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--purple-deep);
+  padding: 96px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(91,69,199,0.4) 0%, transparent 70%);
+}
+.cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4.5vw, 48px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.cta-sub { font-size: 17px; color: rgba(255,255,255,0.65); margin-bottom: 40px; line-height: 1.7; font-weight: 300; }
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: var(--purple-deep);
+  border: none;
+  border-radius: 100px;
+  padding: 20px 48px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Onest', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 50px rgba(0,0,0,0.35); }
+.cta-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.4); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--purple-deep);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 40px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero { padding: 80px 24px 60px; }
+  .section { padding: 64px 24px; }
+  .trust-bar { padding: 20px 24px; }
+  .mentor-card { grid-template-columns: 1fr; text-align: center; padding: 28px; gap: 24px; }
+  .mentor-tags { justify-content: center; }
+  .price-card.featured { transform: scale(1); }
+  .hero-stat-divider { display: none; }
+  .cta-section { padding: 64px 24px; }
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(26,16,64,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--coral-light); }
+.nav-cta {
+  display: inline-flex;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Onest', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover { background: #d4613c; transform: translateY(-1px); }
+
+@media (max-width: 600px) {
+  nav { padding: 14px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Академия <span>ведущих</span></a>
+  <a href="#pricing" class="nav-cta">Записаться</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco-circle"></div>
+  <div class="hero-deco-circle"></div>
+  <div class="hero-deco-circle"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Набор открыт · Старт в мае 2026
+    </div>
+    <h1>
+      Стань <span class="accent">востребованным</span><br>
+      ведущим онлайн-мероприятий<br>
+      и зарабатывай от 200 000 ₽
+    </h1>
+    <p class="hero-sub">
+      Онлайн-курс с живой практикой. Освоишь уникальный стиль, начнёшь вести свадьбы, корпоративы и юбилеи — и получишь первые заказы ещё в процессе обучения.
+    </p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-main">Записаться на курс →</a>
+      <a href="#program" class="btn-ghost">Посмотреть программу</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">1500+</div>
+        <div class="hero-stat-lbl">выпускников</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div>
+        <div class="hero-stat-num">25+</div>
+        <div class="hero-stat-lbl">городов СНГ</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div>
+        <div class="hero-stat-num">8 лет</div>
+        <div class="hero-stat-lbl">опыт школы</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div>
+        <div class="hero-stat-num">97%</div>
+        <div class="hero-stat-lbl">находят заказы</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">🌐</span> Онлайн — из любого города</div>
+    <div class="trust-item"><span class="trust-icon">📜</span> Сертификат по окончании</div>
+    <div class="trust-item"><span class="trust-icon">💳</span> Рассрочка без переплат</div>
+    <div class="trust-item"><span class="trust-icon">🎁</span> 100+ конкурсов в подарок</div>
+    <div class="trust-item"><span class="trust-icon">🤝</span> База заказчиков от школы</div>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Зачем этот курс</div>
+    <h2 class="section-title reveal">Узнаёшь себя?</h2>
+    <p class="section-sub reveal">Если хотя бы один пункт — про тебя, ты попал по адресу.</p>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-emoji">😶</div>
+        <h3>Хочу в ивент, но не знаю с чего начать</h3>
+        <p>Интерес есть, но непонятно как войти в профессию и где брать первых клиентов.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-emoji">🔁</div>
+        <h3>Копирую других и теряю себя</h3>
+        <p>Пытаешься понравиться всем, берёшь клише из YouTube — но чувствуешь, что это не твоё.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-emoji">💸</div>
+        <h3>Веду, но зарабатываю мало</h3>
+        <p>Заказы есть, но ценник низкий. Не знаешь, как поднять стоимость и выйти в премиум-сегмент.</p>
+      </div>
+      <div class="pain-card reveal">
+        <div class="pain-emoji">😰</div>
+        <h3>Теряюсь и боюсь импровизировать</h3>
+        <p>Нет уверенности перед публикой. Нестандартные ситуации пугают и выбивают из колеи.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Результаты курса</div>
+    <h2 class="section-title reveal">После обучения ты сможешь</h2>
+    <div class="results-grid">
+      <div class="result-item reveal">
+        <div class="result-check">✓</div>
+        <div class="result-text">Проводить свадьбы, юбилеи, корпоративы и выпускные на профессиональном уровне</div>
+      </div>
+      <div class="result-item reveal">
+        <div class="result-check">✓</div>
+        <div class="result-text">Создать уникальный образ ведущего — не быть «как все»</div>
+      </div>
+      <div class="result-item reveal">
+        <div class="result-check">✓</div>
+        <div class="result-text">Разрабатывать сценарии с учётом пожеланий заказчика и правильного тайминга</div>
+      </div>
+      <div class="result-item reveal">
+        <div class="result-check">✓</div>
+        <div class="result-text">Мастерски импровизировать и выходить из любых нештатных ситуаций</div>
+      </div>
+      <div class="result-item reveal">
+        <div class="result-check">✓</div>
+        <div class="result-text">Работать с аудиторией разного возраста и размера — от 10 до 500+ человек</div>
+      </div>
+      <div class="result-item reveal">
+        <div class="result-check">✓</div>
+        <div class="result-text">Зарабатывать 20 000–40 000 ₽ за мероприятие и обеспечить заказами на месяцы вперёд</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="section" id="program">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Программа</div>
+    <h2 class="section-title reveal">Чему научишься — по шагам</h2>
+    <p class="section-sub reveal">8 модулей живой практики. Никакой теории ради теории.</p>
+    <div class="modules">
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">01</div>
+        <div>
+          <div class="mod-title">Актёрское мастерство и постановка голоса</div>
+          <div class="mod-desc">Работа с дыханием, дикцией и интонацией. Как звучать уверенно и удерживать внимание зала с первых слов.</div>
+          <span class="mod-tag">Практика</span>
+        </div>
+      </div>
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">02</div>
+        <div>
+          <div class="mod-title">Твой уникальный образ ведущего</div>
+          <div class="mod-desc">Найдёшь свой стиль: интеллектуальный, юмористический, дерзкий или камерный. Поймёшь, как уникальность напрямую влияет на доход.</div>
+          <span class="mod-tag">Стратегия</span>
+        </div>
+      </div>
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">03</div>
+        <div>
+          <div class="mod-title">Сценарии: свадьба, корпоратив, юбилей</div>
+          <div class="mod-desc">Пишем реальные сценарии под разные форматы. Учитываем пожелания заказчика, тайминг, «подводные камни» и особенности площадки.</div>
+          <span class="mod-tag">Практика</span>
+        </div>
+      </div>
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">04</div>
+        <div>
+          <div class="mod-title">Импровизация и работа с микрофоном</div>
+          <div class="mod-desc">Упражнения для мгновенной реакции. Как достойно выйти из любой нештатной ситуации и превратить её в момент шоу.</div>
+          <span class="mod-tag">Практика</span>
+        </div>
+      </div>
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">05</div>
+        <div>
+          <div class="mod-title">Конкурсы, интерактивы и шоу-программа</div>
+          <div class="mod-desc">100+ конкурсов в подарок. Как правильно выстроить программу по тайминг, виды видео-интерактивов и их механика.</div>
+          <span class="mod-tag">Инструменты</span>
+        </div>
+      </div>
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">06</div>
+        <div>
+          <div class="mod-title">Психология толпы и работа с аудиторией</div>
+          <div class="mod-desc">Приёмы позитивного влияния, управление вниманием группы. Особенности малых и больших аудиторий, разных возрастных групп.</div>
+          <span class="mod-tag">Психология</span>
+        </div>
+      </div>
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">07</div>
+        <div>
+          <div class="mod-title">Взаимодействие с диджеем, командой и заказчиком</div>
+          <div class="mod-desc">Синхронизация с диджеем, фотографом, организатором. Переговоры, договор, работа с возражениями и сложными клиентами.</div>
+          <span class="mod-tag">Процессы</span>
+        </div>
+      </div>
+      <div class="module-item reveal">
+        <div class="mod-num-wrap">08</div>
+        <div>
+          <div class="mod-title">Продвижение и продажи: как заполнить график</div>
+          <div class="mod-desc">Соцсети, сарафанное радио, event-площадки. Как выйти на стабильные 100 000–300 000 ₽ в месяц и открыть собственное агентство.</div>
+          <span class="mod-tag">Маркетинг</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Как проходит обучение</div>
+    <h2 class="section-title reveal">4 шага к профессии</h2>
+    <div class="steps">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <div class="step-title">Записываешься</div>
+        <p class="step-desc">Оставляешь заявку. Менеджер связывается в течение 10 минут и помогает выбрать формат.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">2</div>
+        <div class="step-title">Бесплатный урок</div>
+        <p class="step-desc">Вводная онлайн-встреча 15–20 минут. Знакомство, разбор программы, ответы на вопросы.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">3</div>
+        <div class="step-title">Учишься онлайн</div>
+        <p class="step-desc">Видеоуроки + живая обратная связь от куратора в удобное время. Без жёсткого расписания.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">4</div>
+        <div class="step-title">Выпускной эфир</div>
+        <p class="step-desc">Реальное выступление перед живой аудиторией. Получаешь сертификат и первые отзывы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Тарифы</div>
+    <h2 class="section-title reveal">Выбери свой формат</h2>
+    <p class="section-sub reveal">Гибкие варианты — от самостоятельного обучения до персонального наставничества. Беспроцентная рассрочка на все тарифы.</p>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-icon">📚</div>
+        <div class="price-name">Базовый</div>
+        <div class="price-amount">39 000 ₽/месяц</div>
+        <div class="price-sub">Оплата помесячно</div>
+        <ul class="price-features">
+          <li>Доступ к полезным event-ресурсам</li>
+          <li>Набор готовых программ и конкурсов</li>
+          <li>Фотоотчёт</li>
+        </ul>
+        <a href="#" class="btn-price">Выбрать тариф</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="popular-badge">Популярный</div>
+        <div class="price-icon">🎯</div>
+        <div class="price-name">С куратором</div>
+        <div class="price-amount" style="color:#fff">49 000 ₽/месяц</div>
+        <div class="price-sub">Базовый + расширенное сопровождение</div>
+        <ul class="price-features">
+          <li>Всё из тарифа Базовый</li>
+          <li>1 видео</li>
+          <li>2 индивидуальные консультации (по 45 мин.) в месяц с куратором</li>
+          <li>2 эксклюзивных программы</li>
+        </ul>
+        <a href="#" class="btn-price-main">Выбрать тариф</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-icon">👑</div>
+        <div class="price-name">ВИП</div>
+        <div class="price-amount">65 000 ₽/месяц</div>
+        <div class="price-sub">Максимум поддержки и быстрый результат</div>
+        <ul class="price-features">
+          <li>Всё из тарифа Базовый</li>
+          <li>1 видео</li>
+          <li>4 индивидуальные консультации (45 мин.) в неделю с куратором</li>
+          <li>4 эксклюзивных программы</li>
+          <li>Гарантированный первый заказ</li>
+        </ul>
+        <a href="#" class="btn-price">Выбрать тариф</a>
+      </div>
+    </div>
+
+    <div class="earn-grid" style="margin-top:48px">
+      <div class="earn-card reveal">
+        <span class="earn-num">20–40 тыс.</span>
+        <div class="earn-lbl">стоимость одного мероприятия после обучения</div>
+      </div>
+      <div class="earn-card reveal">
+        <span class="earn-num">100–300 тыс. ₽</span>
+        <div class="earn-lbl">доход выпускников в месяц через полгода работы</div>
+      </div>
+      <div class="earn-card reveal">
+        <span class="earn-num">8–12</span>
+        <div class="earn-lbl">мероприятий в месяц проводят лучшие выпускники</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTOR -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Наставник</div>
+    <h2 class="section-title reveal">Кто тебя обучит</h2>
+    <div class="mentor-card reveal">
+      <div class="mentor-avatar">🎤</div>
+      <div>
+        <div class="mentor-name">Василий Кузнецов</div>
+        <div class="mentor-title">Основатель Академии ведущих · ТОП-ведущий СНГ</div>
+        <p class="mentor-bio">Прошёл путь от «Васи, который хочет зарабатывать творчеством» до топового ведущего и создателя школы с 1500+ выпускниками по всему СНГ. Когда-то пытался «понравиться всем», копировал «крутых ведущих» и зарабатывал мало. Нашёл и раскрыл свою уникальность — и понеслось. Теперь передаёт этот путь ученикам.</p>
+        <p class="mentor-bio">Не учит «стопудовым конкурсам» и клише вроде «давайте поаплодируем». Помогает найти твою уникальность и монетизировать её.</p>
+        <div class="mentor-tags">
+          <span class="mentor-tag">Опыт 10+ лет</span>
+          <span class="mentor-tag">1500+ выпускников</span>
+          <span class="mentor-tag">25+ городов</span>
+          <span class="mentor-tag">Авторская методика</span>
+          <span class="mentor-tag">Сотни млн ₽ заработали ученики</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Отзывы</div>
+    <h2 class="section-title reveal">Что говорят выпускники</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">До курса я вела мероприятия за 5 000 ₽. После — первая же свадьба была за 25 000. Нашла свой стиль и перестала бояться импровизировать. Теперь у меня очередь из клиентов на 3 месяца вперёд.</p>
+        <div class="testi-author">
+          <div class="testi-ava">АС</div>
+          <div>
+            <div class="testi-name">Анна Смирнова</div>
+            <div class="testi-city">Екатеринбург</div>
+            <div class="testi-result">Доход вырос в 5 раз</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Был «тамадой по-советски». Курс открыл глаза на современный event. Теперь работаю в другом сегменте, беру корпоративы крупных компаний. Ни одного конкурса «Кто быстрее выпьет» с тех пор.</p>
+        <div class="testi-author">
+          <div class="testi-ava">МД</div>
+          <div>
+            <div class="testi-name">Михаил Денисов</div>
+            <div class="testi-city">Новосибирск</div>
+            <div class="testi-result">120 000 ₽/мес в сезон</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Пришла без опыта. Через 3 месяца после выпуска провела первую свадьбу. Клиент нашёл сам через соцсети — именно так, как учили на курсе. Это было невероятное ощущение!</p>
+        <div class="testi-author">
+          <div class="testi-ava">ЕР</div>
+          <div>
+            <div class="testi-name">Екатерина Романова</div>
+            <div class="testi-city">Казань</div>
+            <div class="testi-result">Первый заказ через 3 месяца</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Вопросы</div>
+    <h2 class="section-title reveal">Часто спрашивают</h2>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Нужен ли опыт для поступления?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Нет. Курс подходит полным новичкам — строим навык с нуля. Если опыт есть, индивидуальная программа поможет выйти на новый уровень дохода и найти свою уникальность.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Как проходят занятия онлайн?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Видеоуроки + живые разборы с куратором в удобное время. Нет жёсткого расписания — учишься когда удобно. Для занятий нужен только компьютер или телефон с интернетом.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Какой документ я получу?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Сертификат Академии ведущих об успешном освоении программы. При выборе формата с профессиональной переподготовкой — диплом о дополнительном профессиональном образовании, который вносится в реестр Рособрнадзора и отображается в Госуслугах.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Есть ли рассрочка?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да, беспроцентная рассрочка на 3–9 месяцев. Условия: 50% предоплата, 50% в процессе или по окончании обучения. Подробности уточняйте у менеджера.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Помогаете с первыми заказами?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да. Отдельный модуль курса посвящён продвижению и продажам. В тарифе VIP — гарантированный первый заказ. Передаём базу заказчиков и партнёрских площадок школы.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Сколько длится курс?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Базовый и стандартный форматы — 2 месяца. Индивидуальная программа — от 1 до 3 месяцев, в зависимости от твоего стартового уровня. В конце — выпускное выступление перед живой аудиторией.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-title">Готов стать ведущим?</h2>
+    <p class="cta-sub">Оставь заявку сейчас — менеджер свяжется в течение 10 минут и ответит на все вопросы. Первый урок бесплатно.</p>
+    <a href="#pricing" class="cta-btn">Получить бесплатный урок →</a>
+    <p class="cta-note">Набор ограничен · Рассрочка 0% · Сертификат по окончании</p>
+  </div>
+</section>
+
+<footer>
+  © 2025 Академия ведущих мероприятий · Все права защищены
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const icon = el.querySelector('.faq-icon');
+  const isOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-a').style.maxHeight = '0';
+    i.querySelector('.faq-icon').textContent = '+';
+  });
+
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.querySelector('.faq-a-inner').offsetHeight + 'px';
+    icon.textContent = '+';
+  }
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
