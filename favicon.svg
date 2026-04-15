@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Микрофон">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="25%" r="85%">
+      <stop offset="0" stop-color="#3d2e8f"/>
+      <stop offset="0.55" stop-color="#1a1040"/>
+      <stop offset="1" stop-color="#0f0a24"/>
+    </radialGradient>
+    <linearGradient id="mic" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#faf8f3"/>
+      <stop offset="1" stop-color="#eeebfc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Circle background (full canvas) -->
+  <circle cx="64" cy="64" r="64" fill="url(#bg)"/>
+
+  <!-- Microphone icon -->
+  <g fill="url(#mic)">
+    <!-- mic capsule -->
+    <rect x="50" y="28" width="28" height="48" rx="14"/>
+    <!-- capsule highlight -->
+    <path d="M58 34c-3 3-4 7-4 14v8c0 7 1 11 4 14c1 1 0 3-1 3c-7-5-8-15-8-25s1-20 8-25c1 0 2 2 1 3z" opacity="0.28"/>
+    <!-- mic stem -->
+    <rect x="61" y="76" width="6" height="14" rx="3"/>
+    <!-- mic base -->
+    <rect x="50" y="92" width="28" height="6" rx="3"/>
+    <!-- mic bracket -->
+    <path d="M44 62c0-2 2-4 4-4s4 2 4 4c0 7 6 13 12 13s12-6 12-13c0-2 2-4 4-4s4 2 4 4c0 11-9 21-20 21s-20-10-20-21z"/>
+  </g>
+</svg>

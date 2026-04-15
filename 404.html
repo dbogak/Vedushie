@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Страница не найдена</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 40px; background: #0f0a24; color: #fff; }
+      a { color: #f5a07a; }
+      .box { max-width: 720px; margin: 0 auto; }
+      .muted { opacity: 0.85; }
+      code { background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>404</h1>
+      <p class="muted">Похоже, такой страницы нет. Сейчас вернём на главную.</p>
+      <p class="muted">Если переход не сработал, откройте <a href="/">главную</a>.</p>
+      <p class="muted"><small>GitHub Pages: файл <code>404.html</code> нужен для корректной отдачи.</small></p>
+    </div>
+    <script>
+      // Simple redirect back to root (safe for GitHub Pages)
+      setTimeout(function () { window.location.replace("/"); }, 800);
+    </script>
+  </body>
+</html>
